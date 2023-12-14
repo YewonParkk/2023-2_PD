@@ -45,7 +45,10 @@ body {
 float:left;
 }
 
-
+  .back-logo{
+    margin-left: 8px;
+    margin-top: 7px;
+  }
 
 /* 기록 버튼 스타일 */
 .memo-record-button {

@@ -4,6 +4,8 @@ import './Memo.css';
 import OCRImg from './img/OcrBtn.png';
 import PlusRImg from './img/PlusBtn.png';
 import AiImg from './img/AiBtn.png';
+import backlogo from './img/backlogo.svg';
+
 
 function Memo() {
   const [memos, setMemos] = useState([]);
@@ -171,6 +173,7 @@ function Memo() {
   return (
     <div className="memo-container">
       <div className="note-wrapper">
+        <img className="back-logo" src={backlogo} width='30px' height='35px' onClick={() => { navigate('/memo'); }}></img>
         <h1 className="memo-header">약 노트</h1>
       </div>
       <div className="search-and-sort">
