@@ -1,0 +1,117 @@
+/* styles.css (or your preferred CSS file) */
+
+/* 상단 바탕색 스타일 */
+.chat-main{
+    position: fixed;
+          right: 15px;
+          top: 8px;
+    border-radius: 70%;
+  }
+  .chat-name{
+    position: fixed;
+    left: 60px;
+    top:14px;
+    color: #fff;
+  }
+  .back-logo{
+    margin-left: 8px;
+    margin-top: 7px;
+  }
+  .top-backcolor {
+    background-color:#023E8A;
+    height: 50px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+  }
+  
+  /* 채팅 내용 스타일 */
+  .chat-content {
+    flex: 1;
+    overflow-y: scroll;
+  }
+  
+  /* 각 라인 스타일 */
+  .line {
+    margin-top: 10px;
+    display: flex;
+  }
+  
+  /* 메시지 스타일 - 사용자 메시지 */
+  .user-message {
+    background: #eee; /* 사용자 메시지의 배경색 */
+    padding: 5px;
+    max-width: 290px;
+    border-radius: 15px; /* 사용자 메시지의 모서리를 둥글게 만듭니다. */
+    margin-left: auto; /* 사용자 메시지를 오른쪽으로 정렬합니다. */
+    margin-right: 10px;
+    margin-bottom: 5px;
+    color: black;
+  }
+  
+  /* 메시지 스타일 - AI 메시지 */
+  .ai-message {
+    background: #CAF0F8; /* AI 메시지의 배경색 */
+    padding: 5px;
+    max-width: 290px;
+    border-radius: 15px; /* AI 메시지의 모서리를 둥글게 만듭니다. */
+    margin-left: 10px;
+    margin-bottom: 5px;
+    color: black;
+  }
+  
+  /* 입력 상자 스타일 */
+  input.chat-box {
+    width: 95%; /* 필요한 경우 너비를 조정합니다. */
+    outline: none;
+    border: none;
+    background: none;
+    color: #0084FF;
+    font-size: 10px;
+    padding-top: 16px;
+    border-top: 1px solid #f0f0f0;
+  }
+  .chat-box::placeholder {
+    color: black; /* 블랙(검은색)으로 설정 */
+  }
+  
+  .App {
+    text-align: center;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

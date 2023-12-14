@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서</title>
+</head>
+<body>
+    <p id="itemName"></p>
+    <p id="efcyQesitm"></p>
+    <p id="useMethodQesitm"></p>
+
+    <script>
+        const itemNameElement = document.getElementById("itemName");
+        const efcyQesitmElement = document.getElementById("efcyQesitm");
+        const useMethodQesitmElement = document.getElementById("useMethodQesitm");
+
+        //api 키 넣기
+        const serviceKey = "3Hd44nU1oacpmj6tlcnrVUlBcPv%2FwvnBhtVClAa5OA3riQo7p1cdMcG5foYMJzxTdPmmX2eOq3oZrB5zTZdEfg%3D%3D";
+
+        //api 문서 참고 후 원하는 요청값 요청
+        const itemName = encodeURIComponent("마데카솔");
+        //api url "http://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?serviceKey=3Hd44nU1oacpmj6tlcnrVUlBcPv%2FwvnBhtVClAa5OA3riQo7p1cdMcG5foYMJzxTdPmmX2eOq3oZrB5zTZdEfg%3D%3D&itemName=마데카솔" 홈페이지 상으로는 이렇게 
+        const url = `http://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList?serviceKey=${serviceKey}&itemName=${itemName}&type=json`;
+        //type설정을 해줘야합니다 json 이것도 문서에 나와있습니다
+
+        //대충 url 요청한다는 뜻 json형식으로 지정 값 가져오기 이것도 문서에 지정 이름 값 나와있어여
+        fetch(url)
+        .then((res) => res.json())
+        .then((myJson) => {
+            const firstItem = myJson.body.items[0]; // Assuming there's at least one item in the response
+            
+            //지정 값 저장하기
+            const itemNameValue = firstItem.itemName;
+            const efcyQesitmValue = firstItem.efcyQesitm;
+            const useMethodQesitmValue = firstItem.useMethodQesitm;
+
+            // html로 출력하기 
+            itemNameElement.innerText = `약 이름: ${itemNameValue}`;
+            efcyQesitmElement.innerText = `효능: ${efcyQesitmValue}`;
+            useMethodQesitmElement.innerText = `사용 방법: ${useMethodQesitmValue}`;
+        })
+        .catch((error) => {
+          console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);
+        });
+    </script>
+</body>
+</html>
