@@ -15,6 +15,15 @@ const Chat = () => {
 
   const navigate = useNavigate();
 
+    // 애플리케이션 초기 로딩 시 로그인 상태 확인
+  useEffect(() => {
+    const token = localStorage.getItem('access_token');
+    if (!token) {
+      // 토큰이 없다면 로그인 페이지로 리디렉션
+      navigate('/login');
+    }
+  }, [navigate]);
+
   const [input, setInput] = useState("");
   const apiKey = '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';
   const [isSending, setIsSending] = useState(false);
