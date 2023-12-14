@@ -22,7 +22,7 @@ function Signup() {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/register', {
+      const response = await fetch('http://13.125.68.133:8080/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

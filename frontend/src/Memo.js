@@ -30,7 +30,7 @@ function Memo() {
           return;
         }
 
-        const response = await fetch('http://localhost:8080/add_memo', {
+        const response = await fetch('http://13.125.68.133:8080/add_memo', {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${token}`,
@@ -65,7 +65,7 @@ function Memo() {
         return;
       }
 
-      const response = await fetch('http://localhost:8080/get_memos', {
+      const response = await fetch('http://13.125.68.133:8080/get_memos', {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -97,7 +97,7 @@ function Memo() {
     }
 
     try {
-      const response = await fetch(`http://localhost:8080/delete_memo/${memoId}`, {
+      const response = await fetch(`http://13.125.68.133:8080/delete_memo/${memoId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -148,7 +148,7 @@ function Memo() {
 
     try {
       const token = localStorage.getItem('access_token');
-      const response = await fetch('http://localhost:8080/perform_ocr', {
+      const response = await fetch('http://13.125.68.133:8080/perform_ocr', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`
