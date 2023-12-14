@@ -173,7 +173,7 @@ function Memo() {
   return (
     <div className="memo-container">
       <div className="note-wrapper">
-        <img className="back-logo" src={backlogo} width='30px' height='35px' onClick={() => { navigate('/memo'); }}></img>
+        <img className="back-logo" src={backlogo} width='30px' height='35px' onClick={() => { navigate('/'); }}></img>
         <h1 className="memo-header">약 노트</h1>
       </div>
       <div className="search-and-sort">
