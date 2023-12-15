@@ -80,7 +80,7 @@ function Login() {
         <label htmlFor="tab-2">계정이 없다면 회원가입을 해주세요.</label>
       </div>
     </div>
-  );z
+  );
 }
 
 export default Login;

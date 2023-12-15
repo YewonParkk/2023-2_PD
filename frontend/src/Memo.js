@@ -145,11 +145,11 @@ function Memo() {
           return a.title.localeCompare(b.title);
         case 'old':
           // 오래된 순 정렬
-          return dateA - dateB;
+//          return dateA - dateB;
         case 'recent':
         default:
           // 최근 생성순 정렬
-          return dateB - dateA;
+//          return dateB - dateA;
       }
     });
     setMemos(sorted);
