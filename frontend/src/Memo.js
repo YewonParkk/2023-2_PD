@@ -26,13 +26,19 @@ function Memo() {
           content: currentMemo.content,
         };
 
+          // 클라이언트 상태에 추가할 데이터
+  const memoDataWithCreatedAt = {
+    ...memoData,
+    createdAt: new Date().toISOString(),  // 현재 시간을 ISO 형식으로 저장
+  };
+
         const token = localStorage.getItem('access_token');
         if (!token) {
           console.error('토큰이 없습니다.');
           return;
         }
 
-        const response = await fetch('http://13.125.68.133:8080/add_memo', {
+        const response = await fetch('http://13.124.3.102:8080/add_memo', {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${token}`,
@@ -67,7 +73,7 @@ function Memo() {
         return;
       }
 
-      const response = await fetch('http://13.125.68.133:8080/get_memos', {
+      const response = await fetch('http://13.124.3.102:8080/get_memos', {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -99,7 +105,7 @@ function Memo() {
     }
 
     try {
-      const response = await fetch(`http://13.125.68.133:8080/delete_memo/${memoId}`, {
+      const response = await fetch(`http://13.124.3.102:8080/delete_memo/${memoId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -130,9 +136,31 @@ function Memo() {
     setSearchTerms(e.target.value);
   };
 
+
+  // 정렬 로직 구현
+  const sortMemos = (option) => {
+    const sorted = [...memos].sort((a, b) => {
+      switch (option) {
+        case 'alphabetical':
+          return a.title.localeCompare(b.title);
+        case 'old':
+          // 오래된 순 정렬
+          return dateA - dateB;
+        case 'recent':
+        default:
+          // 최근 생성순 정렬
+          return dateB - dateA;
+      }
+    });
+    setMemos(sorted);
+  };
+
+  // 정렬 옵션 변경 핸들러
   const handleSortChange = (option) => {
     setSortOption(option);
+    sortMemos(option);
   };
+
 
     const navigate = useNavigate(); // useNavigate 훅을 사용합니다
 
@@ -150,7 +178,7 @@ function Memo() {
 
     try {
       const token = localStorage.getItem('access_token');
-      const response = await fetch('http://13.125.68.133:8080/perform_ocr', {
+      const response = await fetch('http://13.124.3.102:8080/perform_ocr', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`

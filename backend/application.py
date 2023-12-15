@@ -162,7 +162,6 @@ def perform_ocr():
         return jsonify({'error': 'No image file provided'}), 400
 
     image = Image.open(io.BytesIO(image_file.read()))
-
     ocr_text = pytesseract.image_to_string(image, config=config)  # 언어 설정에 주의
 
     # OCR 결과를 데이터베이스에 저장

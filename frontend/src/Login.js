@@ -30,7 +30,7 @@ function Login() {
     }
 
     try {
-      const response = await fetch('http://13.125.68.133:8080/login', {
+      const response = await fetch('http://13.124.3.102:8080/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -80,7 +80,9 @@ function Login() {
         <label htmlFor="tab-2">계정이 없다면 회원가입을 해주세요.</label>
       </div>
     </div>
-  );
+  );z
 }
 
 export default Login;
+
+
